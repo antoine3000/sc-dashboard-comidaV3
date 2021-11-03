@@ -29,9 +29,9 @@
 // };
 
 let settings = {
-  title: "CO-MIDA",
-  logo: "logo-random.svg",
-  filter: {type: "tag", value: "habitas" },
+  title: "Jardín de las Mariposas",
+  // logo: "comida.png",
+  filter: {type: "user", value: "IAAC-Cristian_Rizzuti" },
   searchBar: false,
   primarySensor: { id: 56, threshold: [60, 80] },
   sensors: [
@@ -42,19 +42,19 @@ let settings = {
   ],
   indexView: [],
   styles: {
-    colorBase: "#0b0b0b",
+    colorBase: "#000000",
     colorBody: "#fffdf4",
     colorBackground: "#fffdf4",
     colorTrue: "#66b963",
     colorFalse: "#f96341",
     borderWidth: "1px",
-    borderRadius: "50%",
+    borderRadius: "20px",
   },
   minimalistic: true,
-  footer_logo: "logo-random.svg",
-  footer_description: "An intelligent vertical system co-designed with the users to grow edible plants and produce energy thanks to bacteria",
-  footer_links: [
-    {text: "IAAC", url: "https://iaac.net", logo: "logo-iaac.png"},
-    {text: "Smart Citizen", url: "https://smartcitizen.me/", logo: "logo-sc.svg"}
-  ]
+  // footer_logo: "comida.png",
+  // footer_description: "<a href='https://iaac.net/project/co-mida' target='_blank'>COmida</a> es un sistema de pared verde inteligente co-diseñado con los ciudadanos para cultivar plantas comestibles y producir energía gracias a las bacterias",
+  // footer_links: [
+  //   {text: "IAAC", url: "https://iaac.net", logo: "logo-iaac.png"},
+  //   {text: "Smart Citizen", url: "https://smartcitizen.me/", logo: "logo-sc.svg"}
+  // ]
 };

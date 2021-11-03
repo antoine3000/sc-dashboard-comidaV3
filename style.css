@@ -154,18 +154,18 @@ body:not(.filtered) #reset {display: none;}
 #footer p {
   font-size: var(--size-xl);
 }
-#footer_links {
+.footer_links {
   list-style: none;
   margin-top: var(--size-xxxl);
 }
-#footer_links li {
+.footer_links li {
   display: inline-block;
   margin-right: var(--size-xxl);
 }
-#footer_links li a {
+.footer_links li a {
   display: block;
 }
-#footer_links li img {
+.footer_links li img {
   display: block;
   width: auto;
   height: 60px;
