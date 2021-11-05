@@ -8,15 +8,15 @@ a {color: var(--base-color);}
 }
 #footer img {
   float: left;
-  height: 65px;
+  height: 55px;
   width: auto;
   mix-blend-mode: multiply;
 }
 #footer img.logo-landscape {
-  height: 45px;
+  height: 35px;
 }
 #footer img.logo-social {
-  height: 35px;
+  height: 25px;
 }
 img#footer_logo {
   width: 140px;
@@ -26,7 +26,7 @@ img#footer_logo {
 #footer h2 {
   clear: left;
   font-size: var(--size-md);
-  margin-top: var(--size-xxl);
+  margin-top: var(--size-xl);
   font-weight: 600;
 }
 .footer_links {
@@ -36,4 +36,12 @@ img#footer_logo {
   margin-right: var(--size-xl);
   margin-bottom: var(--size-xl);
   vertical-align: middle;
+}
+#footer p::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+#footer section {
+  display: inline-block;
 }

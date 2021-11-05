@@ -71,24 +71,35 @@ function dashboardUpdate(filterType = null, filterValue = null) {
 
 // get kits from API
 function getKits(filterType = null, filterValue = null) {
-  const cacheName = "dashboardCache";
   const kitsUrl = "https://api.smartcitizen.me/v0/devices/world_map";
-  // add to cache
-  caches.open(cacheName).then(cache => {
-    cache.add(kitsUrl).then(() => { });
-  });
-  // retrieve from cache
-  caches.open(cacheName).then(cache => {
-    cache.match(kitsUrl)
-    .then((response) => {
-      if (response.status == 429) alertUpdate(id, "tooManyRequests");
-      return response.json();
-    })
-    .then((kits) => {
-      displayKits(kits, filterType, filterValue);
-    });
+  https: fetch(kitsUrl)
+  .then((res) => {
+    if (res.status == 429) alertUpdate(id, "tooManyRequests");
+    return res.json();
+  })
+  .then((kits) => {
+    displayKits(kits, filterType, filterValue);
   });
 }
+// function getKits(filterType = null, filterValue = null) {
+//   const cacheName = "dashboardCache";
+//   const kitsUrl = "https://api.smartcitizen.me/v0/devices/world_map";
+//   // add to cache
+//   caches.open(cacheName).then(cache => {
+//     cache.add(kitsUrl).then(() => { });
+//   });
+//   // retrieve from cache
+//   caches.open(cacheName).then(cache => {
+//     cache.match(kitsUrl)
+//     .then((response) => {
+//       if (response.status == 429) alertUpdate(id, "tooManyRequests");
+//       return response.json();
+//     })
+//     .then((kits) => {
+//       displayKits(kits, filterType, filterValue);
+//     });
+//   });
+// }
 
 // display kits (index)
 function displayKits(kits, filterType = null, filterValue = null) {
