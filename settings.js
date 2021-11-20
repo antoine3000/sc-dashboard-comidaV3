@@ -31,14 +31,13 @@
 let settings = {
   title: "Jardín de las Mariposas",
   // logo: "comida.png",
+  // filter: {type: "tag", value: "Inside" },
   filter: {type: "user", value: "IAAC-Cristian_Rizzuti" },
   searchBar: false,
-  primarySensor: { id: 56, threshold: [60, 80] },
+  primarySensor: { id: 50, threshold: [60, 100] },
   sensors: [
-    {id: 14, threshold: [75, 85] },
-    {id: 56, threshold: [30, 85] },
-    {id: 55, threshold: [10, 30] },
-    {id: 53, threshold: [75, 85] },
+    {id: 55, threshold: [5, 30] },
+    {id: 50, threshold: [60, 100] },
   ],
   indexView: [],
   styles: {

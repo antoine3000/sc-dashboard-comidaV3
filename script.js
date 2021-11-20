@@ -104,6 +104,7 @@ function getKits(filterType = null, filterValue = null) {
 // display kits (index)
 function displayKits(kits, filterType = null, filterValue = null) {
   document.getElementById("main").innerHTML = "";
+  document.body.removeAttribute('id');
   document.body.classList.add('index');
   if (settings.minimalistic) {
     document.body.classList.remove('minimalistic');
@@ -156,7 +157,8 @@ function displayKits(kits, filterType = null, filterValue = null) {
       // Add 'is active' value
       let lastReading = new Date(kit.last_reading_at);
       let dateDifferenceMinutes = Math.abs(Math.round((dateNow.getTime() - lastReading.getTime()) / 1000 / 60));
-      if (dateDifferenceMinutes < 30) {
+      // 1 day
+      if (dateDifferenceMinutes < 1440) {
         kit.isActive = true;
       } else {
         kit.isActive = false;
@@ -240,6 +242,7 @@ function displayKits(kits, filterType = null, filterValue = null) {
               target.classList.add(primarySensorCheck(primarySensorValue));
               target.innerHTML += primarySensorHtml;
             }
+            moistureGradients(kit.id,primarySensorValue)
             break;
           }
         }
@@ -270,6 +273,7 @@ function displayKits(kits, filterType = null, filterValue = null) {
             }
             target.classList.remove("updated", "inRange", "outRange");
             target.classList.add("updated", primarySensorCheck(d.data.sensors[i].value));
+            moistureGradients(target, targetValue);
             break;
           }
         }
@@ -298,11 +302,12 @@ function displayKits(kits, filterType = null, filterValue = null) {
   
   function primarySensorCheck(value) {
     let sensorStatus;
-    if ((settings.primarySensor.threshold[0] < value) && (value < settings.primarySensor.threshold[1])) {
+    if ((settings.primarySensor.threshold[0] <= value) && (value <= settings.primarySensor.threshold[1])) {
       sensorStatus = 'inRange'
     } else {
       sensorStatus = 'outRange'
     }
+    
     return sensorStatus;
   }
 }
@@ -331,6 +336,9 @@ function displayKit(kit) {
   
   function detailInterface() {
     let header = document.getElementById('header');
+    // id
+    document.body.removeAttribute('id');
+    document.body.setAttribute('id', kit.id);
     // title
     header.insertAdjacentHTML('beforeend', '<div id="title"><span>' + settings.title + '</span><span>' + kit.name + '</span></div>');
     // subtitle
@@ -352,7 +360,7 @@ function displayKit(kit) {
     document.getElementById("main").insertAdjacentHTML('afterbegin', '<ul class="list" id="sensors"></div>');
     let d = new Date();
     let today = d.toISOString().slice(0, 10);
-    let then = new Date(d.setDate(d.getDate()-30)).toISOString().slice(0, 10); // 5 days ago
+    let then = new Date(d.setDate(d.getDate()-7)).toISOString().slice(0, 10); // 7 days ago
     for (let i = 0; kit.data.sensors.length > i; i++) {
       const sensorUrl = `https://api.smartcitizen.me/v0/devices/${kit.id}/readings?sensor_id=${kit.data.sensors[i].id}&rollup=1h&from=${then}&to=${today}`;
       https: fetch(sensorUrl)
@@ -385,7 +393,7 @@ function displayKit(kit) {
             if (settings.sensors) {
               for (let i = 0; i < settings.sensors.length; i++) {
                 if (settings.sensors[i].id == sensor_id) {
-                  if ((settings.sensors[i].threshold[0] < value) && (value < settings.sensors[i].threshold[1])) {
+                  if ((settings.sensors[i].threshold[0] <= value) && (value <= settings.sensors[i].threshold[1])) {
                     sensorStatus = 'inRange'
                   } else {
                     sensorStatus = 'outRange'
@@ -440,7 +448,7 @@ function displayKit(kit) {
             let sensorStatus;
             for (let i = 0; i < settings.sensors.length; i++) {
               if (id == settings.sensors[i].id) {
-                if ((settings.sensors[i].threshold[0] < newValue) && (newValue < settings.sensors[i].threshold[1])) {
+                if ((settings.sensors[i].threshold[0] <= newValue) && (newValue <= settings.sensors[i].threshold[1])) {
                   sensorStatus = 'inRange'
                 } else {
                   sensorStatus = 'outRange'
