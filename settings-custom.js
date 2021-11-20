@@ -1,10 +1,14 @@
+/*
+CUSTOM SETTINGS
+*/
+
 let settingsCustom = {
   sensors: [
     {
       id: 14539,
       title: "Custom title",
       description: "Custom description",
-      image: "assets/connecthort.png",
+      image: "assets/plant-01.jpg",
       buttonText: "Switch off the pump",
       buttonUrl: "https://duckduckgo.com/"
     },
@@ -12,7 +16,7 @@ let settingsCustom = {
       id: 14540,
       title: "Custom title",
       description: "Custom description",
-      image: "assets/connecthort.png",
+      image: "assets/plant-01.jpg",
       buttonText: "Switch off the pump",
       buttonUrl: "https://duckduckgo.com/"
     },
@@ -20,7 +24,7 @@ let settingsCustom = {
       id: 14538,
       title: "Custom title",
       description: "Custom description",
-      image: "assets/connecthort.png",
+      image: "assets/plant-01.jpg",
       buttonText: "Switch off the pump",
       buttonUrl: "https://duckduckgo.com/"
     },
@@ -28,7 +32,7 @@ let settingsCustom = {
       id: 14537,
       title: "Custom title",
       description: "Custom description",
-      image: "assets/connecthort.png",
+      image: "assets/plant-01.jpg",
       buttonText: "Switch off the pump",
       buttonUrl: "https://duckduckgo.com/"
     },
@@ -36,7 +40,7 @@ let settingsCustom = {
       id: 14542,
       title: "Custom title",
       description: "Custom description",
-      image: "assets/connecthort.png",
+      image: "assets/plant-01.jpg",
       buttonText: "Switch off the pump",
       buttonUrl: "https://duckduckgo.com/"
     },
@@ -44,7 +48,7 @@ let settingsCustom = {
       id: 14543,
       title: "Custom title",
       description: "Custom description",
-      image: "assets/connecthort.png",
+      image: "assets/plant-01.jpg",
       buttonText: "Switch off the pump",
       buttonUrl: "https://duckduckgo.com/"
     },
@@ -52,7 +56,7 @@ let settingsCustom = {
       id: 14541,
       title: "Custom title",
       description: "Custom description",
-      image: "assets/connecthort.png",
+      image: "assets/plant-01.jpg",
       buttonText: "Switch off the pump",
       buttonUrl: "https://duckduckgo.com/"
     },
@@ -60,7 +64,7 @@ let settingsCustom = {
       id: 13966,
       title: "Custom title",
       description: "Custom description",
-      image: "assets/connecthort.png",
+      image: "assets/plant-01.jpg",
       buttonText: "Switch off the pump",
       buttonUrl: "https://duckduckgo.com/"
     },
@@ -68,7 +72,7 @@ let settingsCustom = {
       id: 13816,
       title: "Custom title",
       description: "Custom description",
-      image: "assets/connecthort.png",
+      image: "assets/plant-01.jpg",
       buttonText: "Switch off the pump",
       buttonUrl: "https://duckduckgo.com/"
     },

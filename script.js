@@ -307,7 +307,7 @@ function displayKits(kits, filterType = null, filterValue = null) {
     } else {
       sensorStatus = 'outRange'
     }
-    
+
     return sensorStatus;
   }
 }
@@ -331,6 +331,7 @@ function displayKit(kit) {
   document.body.classList.remove('index');
   detailInterface();
   kitData(kit);
+  addAdditionalContent(kit.id);
   loading(false);
   webSocketDetailUpdate();
   
@@ -352,7 +353,8 @@ function displayKit(kit) {
     document.getElementById("main").insertAdjacentHTML('beforeend', '<a href="https://smartcitizen.me/kits/' + kit.id + '" class="more" target="_blank">More info on this kit&nbsp↗</a>');
     // main class
     for (let i = 0; i < kit.user_tags.length; i++) {
-      document.getElementById("main").classList.add(kit.user_tags[i])
+      let tag = kit.user_tags[i].replace(/ /g,"_");
+      document.getElementById("main").classList.add(tag);
     }
   }
   
