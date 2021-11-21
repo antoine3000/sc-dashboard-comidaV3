@@ -20,5 +20,5 @@
 ## Global
 
 - [x] Global styles
-- [ ] Minimise footer size
-- [ ] Display partner logo on one line
+- [x] Minimise footer size
+- [x] Display partners logo on one line
