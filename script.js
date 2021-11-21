@@ -127,6 +127,8 @@ function displayKits(kits, filterType = null, filterValue = null) {
     listHtml.appendChild(elemHtml(kit));
     kitsCounter++;
   }
+  // global kit
+  isolateGlobalKit();
   searchBar();
   webSocketIndexUpdate();
   
@@ -332,6 +334,7 @@ function displayKit(kit) {
   detailInterface();
   kitData(kit);
   addAdditionalContent(kit.id);
+  detailGlobalKit(kit.id);
   loading(false);
   webSocketDetailUpdate();
   
@@ -377,7 +380,7 @@ function displayKit(kit) {
           data[0].push(date);
           data[1].push(reading[1]);
         }
-        if (settings.sensors) {
+        if ((settings.sensors) && (kit.id != settingsCustom.globalKit.id)) {
           for (let i = 0; i < settings.sensors.length; i++) {
             if (sensor.sensor_id == settings.sensors[i].id) {
               displaySensor();
@@ -405,7 +408,10 @@ function displayKit(kit) {
             } else {
               sensorStatus = 'noRange'
             }
-            document.getElementById("sensors").insertAdjacentHTML('beforeend', '<li id="' + kit.data.sensors[i].id + '" class="' + sensorStatus + '"></li>');
+            let sensors = document.getElementById("sensors");
+            if (sensors) {
+              sensors.insertAdjacentHTML('beforeend', '<li id="' + kit.data.sensors[i].id + '" class="' + sensorStatus + '"></li>');
+            }
             let canvasParent = document.getElementById(kit.data.sensors[i].id);
             canvasParent.insertAdjacentHTML('beforeend', '<h2><span class="value">' + value + '</span>' + kit.data.sensors[i].unit + '</h2>');
             canvasParent.insertAdjacentHTML('beforeend', '<h3>' + kit.data.sensors[i].description + '</h3>');

@@ -39,3 +39,20 @@ function addAdditionalContent(id) {
     }
   }
 }
+
+// Isolate Global Kit
+function isolateGlobalKit() {
+  let globalKit = document.getElementById(settingsCustom.globalKit.id);
+  if (globalKit) {
+    globalKit.id = 'globalKit';
+  }
+}
+
+// Global kit detail
+function detailGlobalKit(id) {
+  if (id === settingsCustom.globalKit.id) {
+    document.body.setAttribute('isGlobal', 'true');
+  } else {
+    document.body.removeAttribute('isGlobal');
+  }
+}

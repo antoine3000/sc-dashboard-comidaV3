@@ -45,3 +45,21 @@ img#footer_logo {
 #footer section {
   display: inline-block;
 }
+#list #globalKit {
+  position: absolute;
+  top: var(--size-lg);
+  right: var(--size-lg);
+  width: 50px !important;
+  height: 50px;
+  background-color: #00b4e5;
+  border-radius: 100%;
+  opacity: 1;
+  border-color: transparent;
+}
+
+@media screen and (min-width: 870px) {
+  #list #globalKit {
+    width: 80px !important;
+    height: 80px;
+  }
+}

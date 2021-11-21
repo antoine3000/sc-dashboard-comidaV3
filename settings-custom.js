@@ -3,6 +3,12 @@ CUSTOM SETTINGS
 */
 
 let settingsCustom = {
+  globalKit: {
+    id: 14539,
+    title: "Custom title",
+    description: "Custom description",
+    image: "assets/plant-01.jpg",
+  },
   sensors: [
     {
       id: 14539,
