@@ -47,19 +47,24 @@ img#footer_logo {
 }
 #list #globalKit {
   position: absolute;
-  top: var(--size-lg);
-  right: var(--size-lg);
-  width: 50px !important;
-  height: 50px;
-  background-color: #00b4e5;
+  top: var(--size-md);
+  right: var(--size-md);
+  width: 40px !important;
+  height: 40px;
+  background-color: #99caff;
   border-radius: 100%;
   opacity: 1;
   border-color: transparent;
+}
+body[isGlobal="true"] {
+  background-color: #99caff;
 }
 
 @media screen and (min-width: 870px) {
   #list #globalKit {
     width: 80px !important;
     height: 80px;
+    top: var(--size-xxl);
+    right: var(--size-xxl);
   }
 }

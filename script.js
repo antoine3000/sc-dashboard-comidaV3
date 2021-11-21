@@ -105,6 +105,7 @@ function getKits(filterType = null, filterValue = null) {
 function displayKits(kits, filterType = null, filterValue = null) {
   document.getElementById("main").innerHTML = "";
   document.body.removeAttribute('id');
+  document.body.removeAttribute('isGlobal');
   document.body.classList.add('index');
   if (settings.minimalistic) {
     document.body.classList.remove('minimalistic');

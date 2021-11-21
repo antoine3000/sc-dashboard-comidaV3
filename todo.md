@@ -15,10 +15,10 @@
 ## Smart Citizen Kit page
 
 - [x] Display all data
+- [x] Different background color
 
 ## Global
 
 - [ ] Global styles
 - [ ] Minimise footer size
 - [ ] Display partner logo on one line
-- [ ] Title system (index / detail)
