@@ -50,6 +50,9 @@ img#footer_logo {
 .footer__socials {
   display: inline-block;
 }
+body:not(.minimalistic) #footer {
+  display: none;
+}
 #list #globalKit {
   position: absolute;
   top: var(--size-md);

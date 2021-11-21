@@ -13,8 +13,8 @@
 :root {
   /* Colors */
   --colorBase: #151515;
-  --colorBody: #FFFFFF;
-  --colorBackground: #e0e8ea;
+  --colorBody: #fffdf4;
+  --colorBackground: #fffdf4;
   --colorTrue: #349353;
   --colorFalse: #e74c3d;
   /* Fonts */
