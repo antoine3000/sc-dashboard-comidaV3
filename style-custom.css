@@ -59,6 +59,29 @@ img#footer_logo {
 body[isGlobal="true"] {
   background-color: #99caff;
 }
+#header img {
+  display: block;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: var(--size-md);
+  margin-top: var(--size-lg);
+  height: 50vh;
+  object-fit: cover;
+}
+#buttonPump {
+  display: block;
+  width: 100%;
+  background-color: var(--colorBase);
+  color: var(--colorBody);
+  text-decoration: none;
+  font-size: var(--size-xl);
+  font-weight: 600;
+  text-align: center;
+  padding: var(--size-md);
+  border-radius: var(--size-md);
+  margin-bottom: var(--size-xxl);
+}
 
 @media screen and (min-width: 870px) {
   #list #globalKit {

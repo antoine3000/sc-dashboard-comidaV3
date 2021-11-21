@@ -31,10 +31,14 @@ function addAdditionalContent(id) {
       img.src = sensor.image;
       document.querySelector("#header").appendChild(img);
       // button
-      let button = document.createElement('a');
-      button.setAttribute('href', sensor.buttonUrl);
-      button.innerHTML = sensor.buttonText;
-      document.querySelector("#main").appendChild(button);
+      if (id != settingsCustom.globalKit.id) {
+        let button = document.createElement('a');
+        button.setAttribute('href', sensor.buttonUrl);
+        button.id = "buttonPump";
+        button.innerHTML = sensor.buttonText;
+        let insertAfterElem = document.querySelector("#sensors");
+        insertAfterElem.parentNode.insertBefore(button, insertAfterElem.nextSibling);
+      }
       break;
     }
   }
