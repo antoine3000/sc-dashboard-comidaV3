@@ -60,3 +60,7 @@ function detailGlobalKit(id) {
     document.body.removeAttribute('isGlobal');
   }
 }
+
+window.onpopstate = function() {
+  dashboardInit();
+}; history.pushState({}, '');

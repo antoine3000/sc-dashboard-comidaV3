@@ -11,6 +11,7 @@
 - [x] Display "energy produced" sensor
 - [x] Add sentence saying that the sensor is online or not
 - [ ] Round data (after websockets update)
+- [ ] back button = back to index
 - [x] Graph: disable zoom
 
 
