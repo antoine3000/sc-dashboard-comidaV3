@@ -90,6 +90,13 @@ body[isGlobal="true"] {
   border-radius: var(--size-md);
   margin-bottom: var(--size-xxl);
 }
+header #status {
+  margin-top: var(--size-sm);
+  font-weight: 600;
+}
+.uplot .u-over {
+  display: none;
+}
 
 @media screen and (min-width: 870px) {
   #list #globalKit {

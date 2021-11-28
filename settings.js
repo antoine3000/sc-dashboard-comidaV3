@@ -31,13 +31,14 @@
 let settings = {
   title: "Jardín de las Mariposas",
   // logo: "comida.png",
-  // filter: {type: "tag", value: "Inside" },
-  filter: {type: "tag", value: "CO-MIDA V2" },
+  filter: {type: "tag", value: "Inside" },
+  // filter: {type: "tag", value: "CO-MIDA V2" },
   searchBar: false,
   primarySensor: { id: 50, threshold: [60, 100] },
   sensors: [
     {id: 55, threshold: [5, 30] },
     {id: 50, threshold: [60, 100] },
+    {id: 133, threshold: [0, 100] },
   ],
   indexView: [],
   styles: {

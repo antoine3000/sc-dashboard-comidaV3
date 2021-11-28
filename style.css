@@ -433,7 +433,7 @@ body:not(.filtered) #reset {display: none;}
     width: calc(100% / 4 - var(--size-lg));
   }
   #sensors > li {
-    width: calc(100% / 2 - var(--size-lg));
+    width: calc(100% / 3 - var(--size-lg));
   }
 }
 

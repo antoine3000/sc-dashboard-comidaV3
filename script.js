@@ -348,6 +348,14 @@ function displayKit(kit) {
     header.insertAdjacentHTML('beforeend', '<div id="title"><span>' + settings.title + '</span><span>' + kit.name + '</span></div>');
     // subtitle
     header.insertAdjacentHTML('beforeend', '<div id="subtitle">' + kit.description + '</div>');
+    // (in)active
+    let dateNow = new Date();
+    let lastReading = new Date(kit.last_reading_at);
+    let dateDifferenceMinutes = Math.abs(Math.round((dateNow.getTime() - lastReading.getTime()) / 1000 / 60));
+    // 1 day
+    if (dateDifferenceMinutes > 1440) {
+      header.insertAdjacentHTML('beforeend', '<div id="status">This sensor is inactive</div>');
+    } 
     // reset
     header.insertAdjacentHTML('beforeend', '<div id="back">← Back to index</div>');
     document.getElementById("back").onclick = function () {
@@ -433,7 +441,7 @@ function displayKit(kit) {
                   fill: settings.styles.colorBase,
                   width: 1,
                 },
-              ]
+              ],
             };
             let uplot = new uPlot(opts, data, document.getElementById(kit.data.sensors[i].id));
           }
@@ -452,7 +460,7 @@ function displayKit(kit) {
           let elem = document.getElementById(id);
           if (elem) {
             let currentValue = elem.getElementsByClassName("value")[0];
-            let newValue = d.data.sensors[i].value;
+            let newValue = Math.round(d.data.sensors[i].value);
             currentValue.innerHTML = newValue;
             let sensorStatus;
             for (let i = 0; i < settings.sensors.length; i++) {
