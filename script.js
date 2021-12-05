@@ -183,8 +183,13 @@ function displayKits(kits, filterType = null, filterValue = null) {
       }
     }
     // Sort kits by date
+    // kitsFiltered.sort(function (a, b) {
+    //   return new Date(b.last_reading_at) - new Date(a.last_reading_at);
+    // });
+    
+    // Sort kits by id
     kitsFiltered.sort(function (a, b) {
-      return new Date(b.last_reading_at) - new Date(a.last_reading_at);
+      return a.id - b.id;
     });
     return { activeCounter, kitsFiltered }
   }
@@ -257,27 +262,29 @@ function displayKits(kits, filterType = null, filterValue = null) {
     if (typeof socketDetail !== 'undefined') {socketDetail.off();}
     const socketIndex = io.connect("wss://ws.smartcitizen.me", { reconnect: true });
     socketIndex.on("data-received", d => {
-      target = document.getElementById(d.id);
-      if (target !== null) {
-        for (let i = 0; i < d.data.sensors.length; i++) {
-          if (d.data.sensors[i].id === settings.primarySensor.id) {
-            targetValue = target.getElementsByClassName("primaryValue")[0];
-            if (targetValue === undefined) {
-              let primarySensorHtml = '<div class="primarySensor"><div><span class="primaryValue"></span> ' + primarySensorUnit + '</div><div>' + primarySensorDesc + '</div></div>';
-              target.innerHTML += primarySensorHtml;
+      if (document.body.classList.contains("index")) {
+        target = document.getElementById(d.id);
+        if (target !== null) {
+          for (let i = 0; i < d.data.sensors.length; i++) {
+            if (d.data.sensors[i].id === settings.primarySensor.id) {
               targetValue = target.getElementsByClassName("primaryValue")[0];
+              if (targetValue === undefined) {
+                let primarySensorHtml = '<div class="primarySensor"><div><span class="primaryValue"></span> ' + primarySensorUnit + '</div><div>' + primarySensorDesc + '</div></div>';
+                target.innerHTML += primarySensorHtml;
+                targetValue = target.getElementsByClassName("primaryValue")[0];
+              }
+              targetValue.textContent = d.data.sensors[i].value;
+              targetUpdate = target.getElementsByClassName("lastUpdate")[0];
+              if (targetUpdate !== undefined) {
+                let dateNow = new Date();
+                targetUpdate.textContent = dateNow.toLocaleString("en-GB");
+                console.log(d.name + ': updated!');
+              }
+              target.classList.remove("updated", "inRange", "outRange");
+              target.classList.add("updated", primarySensorCheck(d.data.sensors[i].value));
+              moistureGradients(target, targetValue);
+              break;
             }
-            targetValue.textContent = d.data.sensors[i].value;
-            targetUpdate = target.getElementsByClassName("lastUpdate")[0];
-            if (targetUpdate !== undefined) {
-              let dateNow = new Date();
-              targetUpdate.textContent = dateNow.toLocaleString("en-GB");
-              console.log(d.name + ': updated!');
-            }
-            target.classList.remove("updated", "inRange", "outRange");
-            target.classList.add("updated", primarySensorCheck(d.data.sensors[i].value));
-            moistureGradients(target, targetValue);
-            break;
           }
         }
       }
@@ -422,28 +429,30 @@ function displayKit(kit) {
               sensors.insertAdjacentHTML('beforeend', '<li id="' + kit.data.sensors[i].id + '" class="' + sensorStatus + '"></li>');
             }
             let canvasParent = document.getElementById(kit.data.sensors[i].id);
-            canvasParent.insertAdjacentHTML('beforeend', '<h2><span class="value">' + value + '</span>' + kit.data.sensors[i].unit + '</h2>');
-            canvasParent.insertAdjacentHTML('beforeend', '<h3>' + kit.data.sensors[i].description + '</h3>');
-            let padding = parseInt(window.getComputedStyle(canvasParent, null).getPropertyValue('padding-left'), 10) * 2;
-            let canvasWidth = canvasParent.offsetWidth - padding;
-            const canvasHeight = (canvasWidth / 15) * 10;
-            const opts = {
-              class: "chart",
-              width: canvasWidth,
-              height: canvasHeight,
-              series: [
-                {},
-                {
-                  spanGaps: true,
-                  label: sensor.sensor_key,
-                  width: 1,
-                  stroke: settings.styles.colorBase,
-                  fill: settings.styles.colorBase,
-                  width: 1,
-                },
-              ],
-            };
-            let uplot = new uPlot(opts, data, document.getElementById(kit.data.sensors[i].id));
+            if (canvasParent) {
+              canvasParent.insertAdjacentHTML('beforeend', '<h2><span class="value">' + value + '</span>' + kit.data.sensors[i].unit + '</h2>');
+              canvasParent.insertAdjacentHTML('beforeend', '<h3>' + kit.data.sensors[i].description + '</h3>');
+              let padding = parseInt(window.getComputedStyle(canvasParent, null).getPropertyValue('padding-left'), 10) * 2;
+              let canvasWidth = canvasParent.offsetWidth - padding;
+              const canvasHeight = (canvasWidth / 15) * 10;
+              const opts = {
+                class: "chart",
+                width: canvasWidth,
+                height: canvasHeight,
+                series: [
+                  {},
+                  {
+                    spanGaps: true,
+                    label: sensor.sensor_key,
+                    width: 1,
+                    stroke: settings.styles.colorBase,
+                    fill: settings.styles.colorBase,
+                    width: 1,
+                  },
+                ],
+              };
+              let uplot = new uPlot(opts, data, document.getElementById(kit.data.sensors[i].id));
+            }
           }
         }
       });

@@ -48,7 +48,7 @@ let settings = {
     colorTrue: "#66b963",
     colorFalse: "#f96341",
     borderWidth: "1px",
-    borderRadius: "20px",
+    borderRadius: "10px",
   },
   minimalistic: true,
   // footer_logo: "comida.png",

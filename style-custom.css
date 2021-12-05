@@ -93,16 +93,54 @@ body[isGlobal="true"] {
 header #status {
   margin-top: var(--size-sm);
   font-weight: 600;
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+  padding: var(--size-md);
+  background-color: var(--colorFalse);
+  color: var(--colorBody);
+  transform: rotate(-10deg);
+  position: relative;
+  top: var(--size-lg);
 }
 .uplot .u-over {
   display: none;
 }
+.minimalistic #list li:not(#globalKit) {
+  height: 54vh;
+  position: relative;
+}
+.minimalistic #list li:not(#globalKit):before,
+.minimalistic #list li:not(#globalKit):after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  margin-left: calc(-1 * var(--size-md));
+  height: var(--size-sm);
+  background-color: var(--colorBackground);
+}
+.minimalistic #list li:not(#globalKit):before {
+  top: 33%;
+}
+.minimalistic #list li:not(#globalKit):after {
+  padding-bottom: 0 !important;
+  top: 66%;
+}
 
-@media screen and (min-width: 870px) {
+@media screen and (min-width: 871px) {
   #list #globalKit {
     width: 80px !important;
     height: 80px;
     top: var(--size-xxl);
     right: var(--size-xxl);
+  }
+}
+@media screen and (max-width: 870px) {
+  #title {
+    margin-top: calc( 2 * var(--size-xxl));
+  }
+  .minimalistic #list > li {
+    margin-left: var(--size-sm);
+    width: calc(100% / 7 - var(--size-sm)) !important;
   }
 }

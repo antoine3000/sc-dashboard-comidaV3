@@ -6,13 +6,15 @@
 
 ## Detail page
 
-- [ ] Fix issue with the Graph display
-- [ ] Fix back to index button
+- [x] Fix issue with the Graph display
+- [x] Fix back to index button
 - [x] Display "energy produced" sensor
 - [x] Add sentence saying that the sensor is online or not
-- [ ] Round data (after websockets update)
-- [ ] back button = back to index
+- [x] Round data (after websockets update)
+- [x] back button = back to index
 - [x] Graph: disable zoom
+- [x] Sort the index by ID
+- [x] Index: 3 elements by element (CSS)
 
 
 - [x] Display photo
