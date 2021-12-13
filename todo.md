@@ -6,6 +6,10 @@
 
 ## Detail page
 
+- [ ] Correct sensors for Smart Citizen kit
+- [ ] Debug back button
+- [ ] Integrate https://core.telegram.org/widgets/discussion
+
 - [x] Fix issue with the Graph display
 - [x] Fix back to index button
 - [x] Display "energy produced" sensor

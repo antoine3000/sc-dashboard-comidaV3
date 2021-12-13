@@ -142,7 +142,7 @@ function displayKits(kits, filterType = null, filterValue = null) {
       header.insertAdjacentHTML('beforeend', '<div id="title">' + settings.title + '</div>');
     }
     // subtitle
-    header.insertAdjacentHTML('beforeend', '<div id="subtitle">' + activeCounter + ' active sensor kits today, of a total of ' + kitsFiltered.length + '</div>');
+    header.insertAdjacentHTML('beforeend', '<div id="subtitle">' + activeCounter + ' kits de sensores activos hoy, de un total de ' + kitsFiltered.length + '</div>');
     // reset
     if (!settings.filter.type.length >= 1) {
       header.insertAdjacentHTML('beforeend', '<div id="reset">Reset filter</div>');
