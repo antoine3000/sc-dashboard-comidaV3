@@ -42,7 +42,19 @@ function addAdditionalContent(id) {
         insertAfterElem.parentNode.insertBefore(button, insertAfterElem.nextSibling);
       }
       // Telegram chat
-      document.getElementById("main").insertAdjacentHTML('beforeend', sensor.telegramChat);
+      script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.async = true;
+      script.onload = function(){
+        console.log('telegram script!')
+      };
+      script.src = 'https://comments.app/js/widget.js?3';
+      script.setAttribute("data-comments-app-website", sensor.telegramChat);
+      script.setAttribute("data-limit", "10");
+      script.setAttribute("data-color", "343638");
+      script.setAttribute("data-dislikes", "1");
+      script.async = false;
+      document.getElementById("main").appendChild(script);
       break;
     }
   }

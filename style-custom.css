@@ -126,6 +126,9 @@ header #status {
   padding-bottom: 0 !important;
   top: 66%;
 }
+#main iframe {
+  margin-top: var(--size-xxl);
+}
 
 @media screen and (min-width: 871px) {
   #list #globalKit {

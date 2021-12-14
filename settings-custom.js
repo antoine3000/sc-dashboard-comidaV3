@@ -14,7 +14,7 @@ let settingsCustom = {
       image: "assets/plant-01.jpg",
       buttonText: "❌ Switch off the pump 💦",
       buttonUrl: "https://duckduckgo.com/",
-      telegramChat: '<script async src="https://comments.app/js/widget.js?3" data-comments-app-website="iyYzzbSp" data-limit="10" data-color="343638" data-dislikes="1"></script>'
+      telegramChat: 'iyYzzbSp'
     },
     {
       id: 14538,
@@ -23,7 +23,7 @@ let settingsCustom = {
       image: "assets/plant-01.jpg",
       buttonText: "❌ Switch off the pump 💦",
       buttonUrl: "https://duckduckgo.com/",
-      telegramChat: '<script async src="https://comments.app/js/widget.js?3" data-comments-app-website="ySCF3-Ru" data-limit="10" data-color="343638" data-dislikes="1"></script>'
+      telegramChat: 'ySCF3-Ru'
     },
     {
       id: 14539,
@@ -32,7 +32,7 @@ let settingsCustom = {
       image: "assets/plant-01.jpg",
       buttonText: "❌ Switch off the pump 💦",
       buttonUrl: "https://duckduckgo.com/",
-      telegramChat: '<script async src="https://comments.app/js/widget.js?3" data-comments-app-website="koyesyk6" data-limit="10" data-color="343638" data-dislikes="1"></script>'
+      telegramChat: 'koyesyk6'
     },
     {
       id: 14540,
@@ -41,7 +41,7 @@ let settingsCustom = {
       image: "assets/plant-01.jpg",
       buttonText: "❌ Switch off the pump 💦",
       buttonUrl: "https://duckduckgo.com/",
-      telegramChat: '<script async src="https://comments.app/js/widget.js?3" data-comments-app-website="si-77eVY" data-limit="10" data-color="343638" data-dislikes="1"></script>'
+      telegramChat: 'si-77eVY'
     },
     {
       id: 14541,
@@ -50,7 +50,7 @@ let settingsCustom = {
       image: "assets/plant-01.jpg",
       buttonText: "❌ Switch off the pump 💦",
       buttonUrl: "https://duckduckgo.com/",
-      telegramChat: '<script async src="https://comments.app/js/widget.js?3" data-comments-app-website="lA8W-k-G" data-limit="10" data-color="343638" data-dislikes="1"></script>'
+      telegramChat: 'lA8W-k-G'
     },
     {
       id: 14542,
@@ -59,7 +59,7 @@ let settingsCustom = {
       image: "assets/plant-01.jpg",
       buttonText: "❌ Switch off the pump 💦",
       buttonUrl: "https://duckduckgo.com/",
-      telegramChat: '<script async src="https://comments.app/js/widget.js?3" data-comments-app-website="iyYzzbSp" data-limit="10" data-color="343638" data-dislikes="1"></script>'
+      telegramChat: 'iyYzzbSp'
     },
     {
       id: 14543,
@@ -68,7 +68,7 @@ let settingsCustom = {
       image: "assets/plant-01.jpg",
       buttonText: "❌ Switch off the pump 💦",
       buttonUrl: "https://duckduckgo.com/",
-      telegramChat: '<script async src="https://comments.app/js/widget.js?3" data-comments-app-website="EfmkC2Hx" data-limit="10" data-color="343638" data-dislikes="1"></script>'
+      telegramChat: 'EfmkC2Hx'
     }
   ],
 };
