@@ -41,6 +41,8 @@ function addAdditionalContent(id) {
         let insertAfterElem = document.querySelector("#sensors");
         insertAfterElem.parentNode.insertBefore(button, insertAfterElem.nextSibling);
       }
+      // Telegram chat
+      document.getElementById("main").insertAdjacentHTML('beforeend', sensor.telegramChat);
       break;
     }
   }
