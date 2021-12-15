@@ -27,17 +27,17 @@ function dashboardInit() {
 function urlGetParameters() {
   const url = new URL(window.location.href);
   const params = url.searchParams;
-  if (isFirstLoad) {
+  if (params.has("id") || params.has("tag") || params.has("city") || params.has("user")) {
+    getFromUrl();
+  } else {
     if ((settings.filter.type) && (settings.filter.value)) {
       settings.filter.type === "tag" ? (tag = settings.filter.value) : (tag = null);
       settings.filter.type === "city" ? (city = settings.filter.value) : (city = null);
       settings.filter.type === "user" ? (user = settings.filter.value) : (user = null);
+      urlAddParameters(settings.filter.type, settings.filter.value);
     } else {
       getFromUrl();
     }
-    isFirstLoad = false;
-  } else {
-    getFromUrl();
   }
   function getFromUrl() {
     params.has("id") === true ? (id = params.get("id")) : (id = null);
@@ -74,7 +74,6 @@ function getKits(filterType = null, filterValue = null) {
   const kitsUrl = "https://api.smartcitizen.me/v0/devices/world_map";
   https: fetch(kitsUrl)
   .then((res) => {
-    if (res.status == 429) alertUpdate(id, "tooManyRequests");
     return res.json();
   })
   .then((kits) => {
@@ -306,7 +305,6 @@ function displayKits(kits, filterType = null, filterValue = null) {
           valueNames: ['name', 'city', 'tag', 'id', 'lastUpdate']
         });
       }
-      
     }
   }
   
@@ -327,7 +325,6 @@ function getKit(id) {
   const kitUrl = `https://api.smartcitizen.me/v0/devices/${id}`;
   https: fetch(kitUrl)
   .then((res) => {
-    if (res.status == 429) alertUpdate(id, "tooManyRequests");
     return res.json();
   })
   .then((kit) => {

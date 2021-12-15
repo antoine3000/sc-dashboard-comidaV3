@@ -6,9 +6,8 @@
 
 ## Detail page
 
-- [ ] Correct sensors for Smart Citizen kit
-- [ ] Debug back button
-- [ ] Integrate https://core.telegram.org/widgets/discussion
+- [/] Correct sensors for Smart Citizen kit
+- [x] Integrate https://core.telegram.org/widgets/discussion
 
 - [x] Fix issue with the Graph display
 - [x] Fix back to index button
@@ -19,7 +18,7 @@
 - [x] Graph: disable zoom
 - [x] Sort the index by ID
 - [x] Index: 3 elements by element (CSS)
-
+ 
 
 - [x] Display photo
 - [x] Description text
@@ -37,3 +36,8 @@
 - [x] Global styles
 - [x] Minimise footer size
 - [x] Display partners logo on one line
+
+- [ ] Debug back button
+- [ ] Create two separate repo for the two projects
+- [ ] Explain telegram integration
+- [ ] Clean code for SC

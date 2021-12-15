@@ -46,7 +46,7 @@ function addAdditionalContent(id) {
       script.type = 'text/javascript';
       script.async = true;
       script.onload = function(){
-        console.log('telegram script!')
+        // console.log('telegram script!')
       };
       script.src = 'https://comments.app/js/widget.js?3';
       script.setAttribute("data-comments-app-website", sensor.telegramChat);
