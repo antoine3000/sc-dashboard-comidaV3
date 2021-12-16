@@ -80,25 +80,6 @@ function getKits(filterType = null, filterValue = null) {
     displayKits(kits, filterType, filterValue);
   });
 }
-// function getKits(filterType = null, filterValue = null) {
-//   const cacheName = "dashboardCache";
-//   const kitsUrl = "https://api.smartcitizen.me/v0/devices/world_map";
-//   // add to cache
-//   caches.open(cacheName).then(cache => {
-//     cache.add(kitsUrl).then(() => { });
-//   });
-//   // retrieve from cache
-//   caches.open(cacheName).then(cache => {
-//     cache.match(kitsUrl)
-//     .then((response) => {
-//       if (response.status == 429) alertUpdate(id, "tooManyRequests");
-//       return response.json();
-//     })
-//     .then((kits) => {
-//       displayKits(kits, filterType, filterValue);
-//     });
-//   });
-// }
 
 // display kits (index)
 function displayKits(kits, filterType = null, filterValue = null) {
@@ -521,34 +502,6 @@ function globalInterface() {
       resetFilters();
     };
   }
-  // // footer
-  // if (document.getElementById("footer")) {
-  //   document.getElementById("footer").remove();
-  // }
-  // let footer = document.createElement("footer");
-  // footer.id = "footer"
-  // document.body.append(footer);
-  // if (settings.footer_links) {
-  //   if (! document.getElementById("footer_links")) {
-  //     let footer_links = document.createElement("ul");
-  //     footer_links.id = "footer_links"
-  //     footer.append(footer_links);
-  //     for (let i = 0; i < settings.footer_links.length; i++) {
-  //       footer_links.insertAdjacentHTML('afterbegin', '<li><a href="' + settings.footer_links[i].url + '" target="_blank"><img src="assets/' + settings.footer_links[i].logo + '" alt="' + settings.footer_links[i].text + '"></a></li>');
-  //     }
-      
-  //   }
-  // }
-  // if (settings.footer_description) {
-  //   if (! document.getElementById("footer_description")) {
-  //     footer.insertAdjacentHTML('afterbegin', '<p>' + settings.footer_description + '</p>');
-  //   }
-  // }
-  // if (settings.footer_logo) {
-  //   if (! document.getElementById("footer_logo")) {
-  //     footer.insertAdjacentHTML('afterbegin', '<img id="footer_logo" src="assets/' + settings.footer_logo + '" alt="' + settings.title + '">');
-  //   }
-  // }
 }
 
 function resetFilters() {
