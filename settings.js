@@ -1,5 +1,5 @@
 let settings = {
-  title: "Jardín de las Mariposas",
+  title: "Comida V3",
   filter: {type: "tag", value: "CO-MIDA V2" },
   searchBar: false,
   primarySensor: { id: 50, threshold: [60, 100] },
