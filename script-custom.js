@@ -34,28 +34,40 @@ function addAdditionalContent(id) {
       document.querySelector("#header").appendChild(img);
       // button
       if (id != settingsCustom.globalKit.id) {
-        let button = document.createElement('a');
-        button.setAttribute('href', sensor.buttonUrl);
+        let button = document.createElement('div');
+        // button.setAttribute('href', sensor.buttonUrl);
         button.id = "buttonPump";
         button.innerHTML = sensor.buttonText;
         let insertAfterElem = document.querySelector("#sensors");
         insertAfterElem.parentNode.insertBefore(button, insertAfterElem.nextSibling);
+        button.onclick = function(){
+          const http = new XMLHttpRequest()
+          http.open("GET", sensor.buttonUrl)
+          http.send();
+          console.log('Telegram message sent');
+          button.classList.add('animation-start');
+          button.innerHTML = sensor.buttonTextAlt;
+          setTimeout(function(){
+            button.classList.remove('animation-start');
+            button.innerHTML = sensor.buttonText;
+          }, 10000);
+        };
       }
-      // Telegram chat
-      script = document.createElement('script');
-      script.type = 'text/javascript';
-      script.async = true;
-      script.onload = function(){
-        // console.log('telegram script!')
-      };
-      script.src = 'https://comments.app/js/widget.js?3';
-      script.setAttribute("data-comments-app-website", sensor.telegramChat);
-      script.setAttribute("data-limit", "10");
-      script.setAttribute("data-color", "343638");
-      script.setAttribute("data-dislikes", "1");
-      script.async = false;
-      document.getElementById("main").appendChild(script);
-      break;
+      if (settingsCustom.sensors[i].telegramChat) {
+        // Telegram chat
+        script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.async = true;
+        script.onload = function(){};
+        script.src = 'https://comments.app/js/widget.js?3';
+        script.setAttribute("data-comments-app-website", sensor.telegramChat);
+        script.setAttribute("data-limit", "10");
+        script.setAttribute("data-color", "343638");
+        script.setAttribute("data-dislikes", "1");
+        script.async = false;
+        document.getElementById("main").appendChild(script);
+        break;
+      }
     }
   }
 }

@@ -89,6 +89,7 @@ body[isGlobal="true"] {
   padding: var(--size-md);
   border-radius: var(--size-md);
   margin-bottom: var(--size-xxl);
+  cursor: pointer;
 }
 header #status {
   margin-top: var(--size-sm);
@@ -129,6 +130,29 @@ header #status {
 #main iframe {
   margin-top: var(--size-xxl);
 }
+#buttonPump {
+  position: relative;
+}
+#buttonPump:after {
+  content: "";
+  height: 8px;
+  width: 0;
+  background-color: #1daef6;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+#buttonPump.animation-start:after {
+  animation: progress 10s 1 linear;
+}
+
+@keyframes progress{
+  0% {width: 0%;}
+  25% {width: 50%;}
+  50% {width: 75%;}
+  75% {width: 85%;}
+  100% {width: 100%;}
+};
 
 @media screen and (min-width: 871px) {
   #list #globalKit {
