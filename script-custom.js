@@ -59,11 +59,11 @@ function addAdditionalContent(id) {
         script.type = 'text/javascript';
         script.async = true;
         script.onload = function(){};
-        script.src = 'https://comments.app/js/widget.js?3';
-        script.setAttribute("data-comments-app-website", sensor.telegramChat);
-        script.setAttribute("data-limit", "10");
-        script.setAttribute("data-color", "343638");
-        script.setAttribute("data-dislikes", "1");
+        script.src = 'https://telegram.org/js/telegram-widget.js?15';
+        script.setAttribute("data-telegram-discussion", sensor.telegramChat);
+        script.setAttribute("data-comments-limit", "10");
+        script.setAttribute("data-color", settings.styles.colorBase);
+        script.setAttribute("data-dark-color", settings.styles.colorBody);
         script.async = false;
         document.getElementById("main").appendChild(script);
         break;
@@ -71,6 +71,7 @@ function addAdditionalContent(id) {
     }
   }
 }
+
 
 // Isolate Global Kit
 function isolateGlobalKit() {

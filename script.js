@@ -347,7 +347,9 @@ function displayKit(kit) {
       resetFilters();
     };
     // read more
-    document.getElementById("main").insertAdjacentHTML('beforeend', '<a href="https://smartcitizen.me/kits/' + kit.id + '" class="more" target="_blank">More info on this kit&nbsp↗</a>');
+    if (settings.minimalistic != true) {
+      document.getElementById("main").insertAdjacentHTML('beforeend', '<a href="https://smartcitizen.me/kits/' + kit.id + '" class="more" target="_blank">More info on this kit&nbsp↗</a>');
+    }
     // main class
     for (let i = 0; i < kit.user_tags.length; i++) {
       let tag = kit.user_tags[i].replace(/ /g,"_");
