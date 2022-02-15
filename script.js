@@ -163,14 +163,15 @@ function displayKits(kits, filterType = null, filterValue = null) {
       }
     }
     // Sort kits by date
-    // kitsFiltered.sort(function (a, b) {
-    //   return new Date(b.last_reading_at) - new Date(a.last_reading_at);
-    // });
+    kitsFiltered.sort(function (a, b) {
+      return new Date(b.last_reading_at) - new Date(a.last_reading_at);
+    });
     
     // Sort kits by id
-    kitsFiltered.sort(function (a, b) {
-      return a.id - b.id;
-    });
+    // kitsFiltered.sort(function (a, b) {
+    //   return a.id - b.id;
+    // });
+
     return { activeCounter, kitsFiltered }
   }
   
